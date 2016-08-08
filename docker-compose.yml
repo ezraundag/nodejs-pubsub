@@ -1,0 +1,18 @@
+redis:
+  image: redis
+  ports:
+    - "6379:6379"
+
+pubsub:
+  build: .
+  command: npm start
+  links:
+    - redis
+  ports:
+    - "5001:5001"
+    - "5002:5002"
+  env_file:
+    - ../env/secret.env
+  volumes:
+    - .:/home/app/pubsub
+    - ../env/:/home/app/env
