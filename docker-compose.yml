@@ -16,3 +16,4 @@ pubsub:
   volumes:
     - .:/home/app/pubsub
     - ../env/:/home/app/env
+    - /home/app/pubsub/node_modules
